@@ -62,9 +62,9 @@ JSONObject otp = traxionpay.fetchOTP();
 ```
 #### Fetch bank accounts
 ```java
-JSONObject otp = traxionpay.fetchBankAccounts();
+JSONObject bankAccounts = traxionpay.fetchBankAccounts();
 ```
 #### Fetch banks
 ```java
-JSONObject otp = traxionpay.fetchBanks();
+JSONObject banks = traxionpay.fetchBanks();
 ```
