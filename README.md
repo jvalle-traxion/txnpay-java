@@ -24,7 +24,12 @@ TraxionPay traxionpay = new TraxionPay(apiKey, secretKey);
 // Sample arguments are the bare minimum for cashIn
 Integer merchantId = 6328;
 String merchantRefNo = "ABC123DEF456";
-String merchantAdditionalData = "eyJwYXltZW50X2NvZGUiOiAiQUJDMTIzREVGNDU2In0=";
+
+JSONObject jsonData = new JSONObject();
+jsonData.put("payment_code", "ABC1234DEF456");
+
+String merchantAdditionalData = jsonData.toJSONString();
+
 Double amount = 1500.0;
 String description = "My test payment";
 String statusNotificationUrl = "https://devapi.traxionpay.com/callback/";
