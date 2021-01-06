@@ -144,4 +144,10 @@ public final class Utils {
         
         return hashedData;
     }
+
+    public static String encodeAdditionalData(String additionalData) {
+        byte[] encodedData = Base64.getEncoder().encode(additionalData.getBytes());
+        String data = new String(encodedData);
+        return data;
+    }
 }
