@@ -53,10 +53,12 @@ public final class TraxionPay {
         String secureHash = Utils.hmacSha256Digest(dataToHash, this.secretKey);
         String authHash = Utils.hmacSha256Digest(this.apiKey, this.secretKey);
 
+        cashIn.merchantAdditionalData = Utils.encodeAdditionalData(cashIn.merchantAdditionalData);
+
         PayformData rawPayform = new PayformData(cashIn, billing, secureHash, authHash, "HS256");
         byte[] encoded = Base64.getEncoder().encode(StringEscapeUtils.unescapeJava(rawPayform.toJSON()).getBytes());
         String decoded = new String(encoded);
-        
+
         List<NameValuePair> payload = new ArrayList<NameValuePair>();
         payload.add(new BasicNameValuePair("form_data", decoded));
 
