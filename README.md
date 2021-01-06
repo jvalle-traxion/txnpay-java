@@ -5,7 +5,7 @@
 - [Usage](#usage)
 
 ## Installation
-Download traxionpay-java-sdk.jar file and add it to .classpath
+Download [traxionpay-java-sdk.jar](https://github.com/jvalle-traxion/txnpay-java/blob/master/traxionpay-java-sdk.jar) file and add it to .classpath
 ```xml
 <classpathentry kind="lib" path="path/to/traxionpay-java-sdk.jar"/>
 ```
