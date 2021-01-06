@@ -70,7 +70,11 @@ class AppTest {
     void testCashIn() {
         Integer merchantId = 6328;
         String merchantRefNo = "ABC123DEF456";
-        String merchantAdditionalData = "eyJwYXltZW50X2NvZGUiOiAiQUJDMTIzREVGNDU2In0=";
+
+        JSONObject jsonData = new JSONObject();
+        jsonData.put("payment_code", merchantRefNo);
+        
+        String merchantAdditionalData = jsonData.toJSONString();
         Double amount = 1500.0;
         String description = "My test payment";
         String statusNotificationUrl = "https://devapi.traxionpay.com/callback/";
@@ -97,7 +101,6 @@ class AppTest {
                 currency
             ), null // Billing details, Optional
         );
-
         assertNotNull(data);
         assertTrue(data.containsKey("url"));
         assertTrue(data.get("url").toString().contains("https://dev.traxionpay.com/payme/?data="));
